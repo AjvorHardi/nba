@@ -17,5 +17,12 @@
             <a href="/players/{{$player->id}}">{{ $player->first_name }} {{ $player->last_name}}</a> <br>
         @endforeach
     @endif
+
+
+    @if(count($team->comments))
+        @foreach($team->comments as $comment)
+            <p> {{ $comment->content }} </p>
+        @endforeach
+    @endif
 </body>
 </html>
