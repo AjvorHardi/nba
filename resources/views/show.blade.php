@@ -18,9 +18,25 @@
         @endforeach
     @endif
 
+    <h4>Komentari</h4>
+    <form method="POST" action="{{ route('team-comments', ['id' => $team->id]) }}">
+
+        @csrf
+
+        <div class="form-group">
+            <label for="content"></label>
+            <textarea type="email" class="form-control" id="content" name="content"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
 
     @if(count($team->comments))
         @foreach($team->comments as $comment)
+            <p><em> {{ $comment->user->name }}</em></p>
             <p> {{ $comment->content }} </p>
         @endforeach
     @endif
